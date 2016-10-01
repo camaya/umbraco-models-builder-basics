@@ -1,0 +1,10 @@
+﻿@model Author
+
+<img src="@(Model.AuthorPicture.Src + Model.AuthorPicture.GetCropUrl("thumbnail"))" />
+<p>
+    <strong>Cristhian Amaya</strong>
+    @if (!string.IsNullOrEmpty(Model.TwitterHandle))
+    {
+        <em>(<a href="http://twitter.com/@Model.TwitterHandle">@@@Model.TwitterHandle</a>)</em>
+    }
+</p>

@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Post>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    var author = Umbraco.TypedContent(Model.PostAuthor) as Author;
+}
+
+<article>
+    <header>
+        <h1>@Model.PostTitle</h1>
+    </header>
+    @Html.Raw(Model.PostContent)
+    <section>
+        @Html.Partial("AuthorInfo", author)
+    </section>
+</article>

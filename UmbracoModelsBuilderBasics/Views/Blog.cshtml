@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Blog>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+
+<h1>Welcome to the blog</h1>
+<ul>
+    @foreach (var post in Model.Children<Post>())
+    {
+        var author = Umbraco.TypedContent(post.PostAuthor) as Author;
+        <li><a href="@post.Url">@post.PostTitle</a> by <a href="@author.Url">@author.AuthorName</a></li>
+    }
+</ul>
